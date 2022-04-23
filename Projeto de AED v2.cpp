@@ -1,12 +1,4 @@
-ASDFGHJKLÇ
-
-
-
-SDSADF
-
-
-
-  #include <stdio.h> //Declarações de funções úteis para entrada e saída de dados 
+#include <stdio.h> //Declarações de funções úteis para entrada e saída de dados 
 #include <conio.h> // funções para entrada/saída do consola
 #include <locale.h> // adaptaçao do idioma 
 #include <stdlib.h> // define variáveis e funções.
