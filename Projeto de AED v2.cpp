@@ -11,20 +11,21 @@ void cabecalho(){
 	printf("||--------------------------------||\n");
 }
 
-typedef struct clientes CLI; //Cria STRUCT para armazenar dados de um evento e define o nome, capacidade de deixar a palavra "struct" ao declarar variáveis desse tipo
+typedef struct conta CON; //Cria STRUCT para armazenar dados de uma conta, capacidade de deixar a palavra "struct" ao declarar variáveis desse tipo
+struct conta{               
+	long int Codigo; //Codigo da conta  
+	float Saldo; //Saldo da conta
+	char TipoDeConta; //Tipo de Conta (prazo ou poupança)
+};
+
+
+typedef struct clientes CLI; //Cria STRUCT para armazenar dados de um cliente, capacidade de deixar a palavra "struct" ao declarar variáveis desse tipo
 struct clientes{               
 	long Codigo; //Codigo Numérico do cliente e numero de conta 
 	char NomeDeCliente[100];  //Nome do cliente
 	char Localidade[100];  //Localidade do cliente   
 	float Saldo; //Saldo Global do cliente
-	char Contas [5];
-};
-
-typedef struct conta CON;
-struct conta{               
-	long int Codigo; //Codigo da conta  
-	float Saldo; //Saldo da conta
-	char TipoDeConta; //Tipo de Conta
+	int CON [5]; //Contas pertencentes ao cliente
 };
 
 
