@@ -51,15 +51,6 @@ void CriarCliente(Lista *lista){
 	printf("Insira o saldo: \n", novo->Saldo);
 	scanf("%f", &novo->Saldo);
     
-	clientes *inicio = lista->inicio;
-    printf("Tamanho da lista: %d\n", lista->tam);
-    while(inicio != NULL) {
-        printf("%.2f \t", inicio->Saldo);
-        printf("%s\n", inicio->NomeDeCliente);
-        inicio = inicio->proximo;
-    }
-    printf("\n\n");
-	getch();
 }
 
 
