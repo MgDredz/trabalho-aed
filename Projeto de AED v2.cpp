@@ -100,7 +100,7 @@ void Imprimir(Lista *lista) {
     printf("Número de clientes: %d\n\n", lista->tam);
     while(inicio != NULL) {
         printf("Nome: %s\t", inicio->NomeDeCliente);
-		printf("Cliente %8.ld\n", inicio->Codigo);
+		printf("Cliente %.6ld\n", inicio->Codigo);
 		printf("Saldo Global: %.2f \n", inicio->SaldoGlobal);
     	printf("Morada: %s\n", inicio->Localidade);
     	printf("Numero de contas abertas: %d\n", inicio->nmrContas);
