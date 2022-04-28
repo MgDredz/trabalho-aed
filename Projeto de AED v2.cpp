@@ -3,6 +3,7 @@
 #include <locale.h> // adaptaçao do idioma 
 #include <stdlib.h> // define variáveis e funções.
 #include <string.h> //define funções para manipular matrizes de caracteres.
+#include <ctime>
 
 void cabecalho(){
 	system ("cls"); //limpa a tela de saída de programa que é executado
@@ -18,11 +19,12 @@ typedef struct conta{
 }conta;
 
 typedef struct clientes{               
-	long Codigo; //Codigo Numérico do cliente e numero de conta 
+	long int Codigo; //Codigo Numérico do cliente e numero de conta 
 	char NomeDeCliente[100];  //Nome do cliente
 	char Localidade[100];  //Localidade do cliente   
-	float Saldo; //Saldo Global do cliente
+	float SaldoGlobal; //Saldo Global do cliente
 	struct conta CON[5]; //Contas pertencentes ao cliente
+	int nmrContas=0;
 	struct clientes *proximo;
 }clientes;
  
@@ -32,6 +34,44 @@ typedef struct Lista{
     int tam;
 } Lista;
 
+long int totalClientes=1;
+int totalContas=1;
+
+
+
+
+/*CriarConta(Lista *lista){
+	
+	
+	float valor;
+	printf("Saldo a remover: ");
+	scanf("%f", &valor);
+    if(inicio != NULL && lista->inicio->SaldoGlobal == valor) { // remover 1º elemento
+        
+		noARemover = lista->inicio;
+        lista->inicio = noARemover->proximo;
+        if(lista->inicio == NULL)
+            lista->fim = NULL;
+    } else { // remoção no meio ou no final
+        while(inicio != NULL && inicio->proximo != NULL && inicio->proximo->SaldoGlobal != valor) {
+            inicio = inicio->proximo;
+        }
+        if(inicio != NULL && inicio->proximo != NULL) {
+            noARemover = inicio->proximo;
+            inicio->proximo = noARemover->proximo;
+            if(inicio->proximo == NULL) // se o último elemento for removido
+                lista->fim = inicio;
+        }
+    }
+    if(noARemover) {
+        free(noARemover); // libera a memória do nó
+        lista->tam--; // decrementa o tamanho da lista
+    }
+	
+	
+}
+
+*/
 
 void CriarCliente(Lista *lista){
 	
@@ -46,23 +86,24 @@ void CriarCliente(Lista *lista){
         lista->inicio = novo;
     }
     lista->tam++;
-    printf("NOme: \n", novo->NomeDeCliente);
+    printf("Insira o nome: \n", novo->NomeDeCliente);
 	scanf("%s", &novo->NomeDeCliente);
-	printf("Insira o saldo: \n", novo->Saldo);
-	scanf("%f", &novo->Saldo);
-    
+	printf("Insira a morada: \n", novo->Localidade);
+	scanf("%s", &novo->Localidade);
+	novo->SaldoGlobal=0;
+    novo->Codigo=totalClientes;
 }
-
-
-
 
 
 void Imprimir(Lista *lista) { 
 	clientes *inicio = lista->inicio;
-    printf("Tamanho da lista: %d\n", lista->tam);
+    printf("Número de clientes: %d\n\n", lista->tam);
     while(inicio != NULL) {
-        printf("%.2f \t", inicio->Saldo);
-        printf("%s\n", inicio->NomeDeCliente);
+        printf("Nome: %s\t", inicio->NomeDeCliente);
+		printf("Cliente %8.ld\n", inicio->Codigo);
+		printf("Saldo Global: %.2f \n", inicio->SaldoGlobal);
+    	printf("Morada: %s\n", inicio->Localidade);
+    	printf("Numero de contas abertas: %d\n", inicio->nmrContas);
         inicio = inicio->proximo;
     }
     printf("\n\n");
@@ -74,17 +115,17 @@ void RemoverCliente(Lista *lista) {
     clientes *inicio = lista->inicio; // ponteiro para o início da lista
     clientes * noARemover = NULL; // ponteiro para o nó a ser removido
 
-float valor;
-printf("Saldo a remover: ");
-scanf("%f", &valor);
-    if(inicio != NULL && lista->inicio->Saldo == valor) { // remover 1º elemento
+	long int valor;
+	printf("Código numérico do cliente a remover: ");
+	scanf("%ld", &valor);
+    if(inicio != NULL && lista->inicio->Codigo == valor) { // remover 1º elemento
         
 		noARemover = lista->inicio;
         lista->inicio = noARemover->proximo;
         if(lista->inicio == NULL)
             lista->fim = NULL;
     } else { // remoção no meio ou no final
-        while(inicio != NULL && inicio->proximo != NULL && inicio->proximo->Saldo != valor) {
+        while(inicio != NULL && inicio->proximo != NULL && inicio->proximo->Codigo != valor) {
             inicio = inicio->proximo;
         }
         if(inicio != NULL && inicio->proximo != NULL) {
@@ -100,7 +141,52 @@ scanf("%f", &valor);
     }
 }
 
+void ContasMenu(Lista *lista){
+int opcao;	
+	
+	do{
+		cabecalho();
+		printf("\n1 - Adicionar nova conta\n");
+	/*	printf("2 - Editar cliente\n");
+		printf("3 - Consultar cliente\n");
+		printf("4 - Remover cliente\n");
+		printf("5 - Listar clientes\n");
+		printf("0 - Voltar ao menu\n\n");*/
+		scanf("%d", &opcao);
+		
+	switch(opcao){
+		case 1: 	
+		//	CriarConta(lista);
+		break;
+	
+	/*	case 2: 
+				
+		break;
+			
+		case 3: 
+		
+		break;
+			
+		case 4: 
+			RemoverCliente(lista);
+		break;
+			
+		case 5: 
+			Imprimir(lista);
+		break;	
+				
+		case 0: 
+			return;
+		break;*/
+			
+		default:
+			printf("Opcao inválida! \n");
+			getch();
+		}
+			
+	}while(opcao != 0);
 
+}
 void ClientesMenu(Lista *lista){
 int opcao;	
 	
@@ -163,8 +249,8 @@ int main () {
     
 	do{ 
 		cabecalho();
-		printf("\n1 - Gerir conta de clientes do Banco\n"); /* - permita gerir (criar, editar, consultar, remover e listar) as contas dos clientes; */
-		printf("2 - Gerir clientes do Banco\n"); /* - permita gerir (criar, editar, consultar, remover e listar) os clientes do banco && - permita registar movimentos nas contas */
+		printf("\n1 - Gerir clientes\n"); /* - permita gerir (criar, editar, consultar, remover e listar) as contas dos clientes; */
+		printf("2 - Gerir contas\n"); /* - permita gerir (criar, editar, consultar, remover e listar) os clientes do banco && - permita registar movimentos nas contas */
 		printf("3 - Consulta geral\n"); /* - permita consultar */////////*Criar novo Cliente*/
 		printf("0 - Sair\n\n");
 		printf("Escolha uma opção: ");
@@ -172,11 +258,11 @@ int main () {
 		
 		switch(opcao){
 			case 1: 	
-				
+				ClientesMenu(&lista);
 			break;
 			
 			case 2: 
-				ClientesMenu(&lista);
+				ContasMenu(&lista);
 			break;
 			
 			case 3: 
