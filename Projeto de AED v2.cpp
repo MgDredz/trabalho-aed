@@ -3,12 +3,12 @@
 #include <locale.h> // adaptaçao do idioma 
 #include <stdlib.h> // define variáveis e funções.
 #include <string.h> //define funções para manipular matrizes de caracteres.
-#include <ctime>
+//#include <ctime>
 
 void cabecalho(){
 	system ("cls"); //limpa a tela de saída de programa que é executado
 	printf("||--------------------------------||\n");
-    printf("||         banco do VSKI          ||\n");
+    printf("||           UMinho Bank          ||\n");
 	printf("||--------------------------------||\n");
 }
 
@@ -70,9 +70,18 @@ int totalContas=1;
 	
 	
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> fe39f370dd0638bfe5d1c60effbbe9523d5c5208
 */
 
 void CriarCliente(Lista *lista){
+	system("cls");
+	cabecalho();
+//	printf("||--------------------------------||\n");
+    printf("||         CRIAR CLIENTE          ||\n");
+	printf("||--------------------------------||\n");
 	
 	cabecalho();
 	
@@ -112,6 +121,7 @@ void Imprimir(Lista *lista) {
     }
     printf("\n\n");
     getch();
+    printf("Prima qualquer butão para continuar...");
 }
 
 
@@ -154,7 +164,7 @@ int opcao;
 	do{
 		cabecalho();
 		printf("\n1 - Adicionar nova conta\n");
-		printf("2 - Editar cliente\n");
+	/*	printf("2 - Editar cliente\n");
 		printf("3 - Consultar cliente\n");
 		printf("4 - Remover cliente\n");
 		printf("5 - Listar clientes\n");
@@ -163,10 +173,14 @@ int opcao;
 		
 	switch(opcao){
 		case 1: 	
+<<<<<<< HEAD
 			//CriarConta(lista);
+=======
+		//	CriarConta(lista);
+>>>>>>> fe39f370dd0638bfe5d1c60effbbe9523d5c5208
 		break;
 	
-		case 2: 
+	/*	case 2: 
 				
 		break;
 			
@@ -205,8 +219,8 @@ int opcao;
 		printf("4 - Remover cliente\n");
 		printf("5 - Listar clientes\n");
 		printf("0 - Voltar ao menu\n\n");
+		printf("Escolha uma opção: ");
 		scanf("%d", &opcao);
-		
 	switch(opcao){
 		case 1: 	
 			CriarCliente(lista);
