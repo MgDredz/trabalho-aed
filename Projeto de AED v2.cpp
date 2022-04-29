@@ -5,10 +5,10 @@
 #include <string.h> //define funções para manipular matrizes de caracteres.
 #include <ctime>
 
-void cabecalho(){
+//void cabecalho(){
 	system ("cls"); //limpa a tela de saída de programa que é executado
 	printf("||--------------------------------||\n");
-    printf("||         UMinho Bank          ||\n");
+    printf("||         banco do VSKI          ||\n");
 	printf("||--------------------------------||\n");
 }
 
@@ -40,7 +40,7 @@ int totalContas=1;
 
 
 
-/*CriarConta(Lista *lista){
+CriarConta(Lista *lista){
 	
 	
 	float valor;
@@ -71,14 +71,9 @@ int totalContas=1;
 	
 }
 
-*/
+
 
 void CriarCliente(Lista *lista){
-	system("cls");
-	cabecalho();
-//	printf("||--------------------------------||\n");
-    printf("||         CRIAR CLIENTE          ||\n");
-	printf("||--------------------------------||\n");
 	
 	clientes *novo = (clientes*)malloc(sizeof(clientes)); // cria um novo nó
     
@@ -101,9 +96,6 @@ void CriarCliente(Lista *lista){
 
 
 void Imprimir(Lista *lista) { 
-	
-	cabecalho();
-	
 	clientes *inicio = lista->inicio;
     printf("Número de clientes: %d\n\n", lista->tam);
     while(inicio != NULL) {
@@ -116,15 +108,11 @@ void Imprimir(Lista *lista) {
     }
     printf("\n\n");
     getch();
-    printf("Prima qualquer butão para continuar...");
 }
 
 
 void RemoverCliente(Lista *lista) {
-    
-	cabecalho();
-	
-	clientes *inicio = lista->inicio; // ponteiro para o início da lista
+    clientes *inicio = lista->inicio; // ponteiro para o início da lista
     clientes * noARemover = NULL; // ponteiro para o nó a ser removido
 
 	long int valor;
@@ -159,7 +147,7 @@ int opcao;
 	do{
 		cabecalho();
 		printf("\n1 - Adicionar nova conta\n");
-	/*	printf("2 - Editar cliente\n");
+		printf("2 - Editar cliente\n");
 		printf("3 - Consultar cliente\n");
 		printf("4 - Remover cliente\n");
 		printf("5 - Listar clientes\n");
@@ -168,10 +156,10 @@ int opcao;
 		
 	switch(opcao){
 		case 1: 	
-		//	CriarConta(lista);
+			CriarConta(lista);
 		break;
 	
-	/*	case 2: 
+		case 2: 
 				
 		break;
 			
@@ -210,8 +198,8 @@ int opcao;
 		printf("4 - Remover cliente\n");
 		printf("5 - Listar clientes\n");
 		printf("0 - Voltar ao menu\n\n");
-		printf("Escolha uma opção: ");
 		scanf("%d", &opcao);
+		
 	switch(opcao){
 		case 1: 	
 			CriarCliente(lista);
