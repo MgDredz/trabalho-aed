@@ -70,10 +70,7 @@ int totalContas=1;
 	
 	
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> fe39f370dd0638bfe5d1c60effbbe9523d5c5208
 */
 
 void CriarCliente(Lista *lista){
@@ -82,8 +79,6 @@ void CriarCliente(Lista *lista){
 //	printf("||--------------------------------||\n");
     printf("||         CRIAR CLIENTE          ||\n");
 	printf("||--------------------------------||\n");
-	
-	cabecalho();
 	
 	clientes *novo = (clientes*)malloc(sizeof(clientes)); // cria um novo nó
     
@@ -168,16 +163,12 @@ int opcao;
 		printf("3 - Consultar cliente\n");
 		printf("4 - Remover cliente\n");
 		printf("5 - Listar clientes\n");
-		printf("0 - Voltar ao menu\n\n");
+		printf("0 - Voltar ao menu\n\n");*/
 		scanf("%d", &opcao);
 		
 	switch(opcao){
 		case 1: 	
-<<<<<<< HEAD
-			//CriarConta(lista);
-=======
 		//	CriarConta(lista);
->>>>>>> fe39f370dd0638bfe5d1c60effbbe9523d5c5208
 		break;
 	
 	/*	case 2: 
@@ -198,7 +189,7 @@ int opcao;
 				
 		case 0: 
 			return;
-		break;
+		break;*/
 			
 		default:
 			printf("Opcao inválida! \n");
