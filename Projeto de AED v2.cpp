@@ -70,20 +70,15 @@ int totalContas=1;
 	
 	
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> fe39f370dd0638bfe5d1c60effbbe9523d5c5208
 */
 
 void CriarCliente(Lista *lista){
+	
 	system("cls");
-	cabecalho();
-//	printf("||--------------------------------||\n");
+	printf("||--------------------------------||\n");
     printf("||         CRIAR CLIENTE          ||\n");
 	printf("||--------------------------------||\n");
-	
-	cabecalho();
 	
 	clientes *novo = (clientes*)malloc(sizeof(clientes)); // cria um novo nó
     
@@ -164,7 +159,7 @@ int opcao;
 	do{
 		cabecalho();
 		printf("\n1 - Adicionar nova conta\n");
-	/*	printf("2 - Editar cliente\n");
+		printf("2 - Editar cliente\n");
 		printf("3 - Consultar cliente\n");
 		printf("4 - Remover cliente\n");
 		printf("5 - Listar clientes\n");
@@ -173,14 +168,11 @@ int opcao;
 		
 	switch(opcao){
 		case 1: 	
-<<<<<<< HEAD
 			//CriarConta(lista);
-=======
-		//	CriarConta(lista);
->>>>>>> fe39f370dd0638bfe5d1c60effbbe9523d5c5208
+
 		break;
-	
-	/*	case 2: 
+		
+		case 2: 
 				
 		break;
 			
@@ -189,11 +181,11 @@ int opcao;
 		break;
 			
 		case 4: 
-			RemoverCliente(lista);
+			//RemoverCliente(lista);
 		break;
 			
 		case 5: 
-			Imprimir(lista);
+			//Imprimir(lista);
 		break;	
 				
 		case 0: 
