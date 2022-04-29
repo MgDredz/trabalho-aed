@@ -3,7 +3,7 @@
 #include <locale.h> // adaptaçao do idioma 
 #include <stdlib.h> // define variáveis e funções.
 #include <string.h> //define funções para manipular matrizes de caracteres.
-#include <ctime>
+//#include <ctime>
 
 void cabecalho(){
 	system ("cls"); //limpa a tela de saída de programa que é executado
