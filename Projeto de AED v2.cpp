@@ -8,7 +8,7 @@
 void cabecalho(){
 	system ("cls"); //limpa a tela de saída de programa que é executado
 	printf("||--------------------------------||\n");
-    printf("||         Banco do VSKI          ||\n");
+    printf("||         UMinho Bank          ||\n");
 	printf("||--------------------------------||\n");
 }
 
